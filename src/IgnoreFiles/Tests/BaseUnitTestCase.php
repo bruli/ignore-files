@@ -1,8 +1,6 @@
 <?php
 
-
 namespace IgnoreFiles\Tests;
-
 
 use IgnoreFiles\Infrastructure\Disk\FileReader;
 
@@ -15,6 +13,7 @@ abstract class BaseUnitTestCase extends \PHPUnit_Framework_TestCase
 
     /**
      * @param $class
+     *
      * @return \Mockery\MockInterface
      */
     protected function mock($class)

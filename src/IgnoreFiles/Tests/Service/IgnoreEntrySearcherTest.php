@@ -26,7 +26,7 @@ class IgnoreEntrySearcherTest extends BaseUnitTestCase
             'file1.php',
             'dir1/file2.php',
             'dir2',
-            'dir3/'
+            'dir3/',
         ];
     }
 
@@ -38,28 +38,28 @@ class IgnoreEntrySearcherTest extends BaseUnitTestCase
         return [
             [
                 $this->ignoreDataProvide(),
-                'file1.php'
+                'file1.php',
             ],
             [
                 $this->ignoreDataProvide(),
-                'dir1/file2.php'
+                'dir1/file2.php',
             ],
             [
                 $this->ignoreDataProvide(),
-                'dir2/file3.php'
+                'dir2/file3.php',
             ],
             [
                 $this->ignoreDataProvide(),
-                'dir3/file4.php'
+                'dir3/file4.php',
             ],
             [
                 $this->ignoreDataProvide(),
-                'dir3/subdir1/file4.php'
+                'dir3/subdir1/file4.php',
             ],
             [
                 $this->ignoreDataProvide(),
-                'dir3/subdir1/subdir2/file4.php'
-            ]
+                'dir3/subdir1/subdir2/file4.php',
+            ],
         ];
     }
 
@@ -70,17 +70,20 @@ class IgnoreEntrySearcherTest extends BaseUnitTestCase
     {
         return [
             [
+                [],
+                'file_valid.php',
+            ],[
                 $this->ignoreDataProvide(),
-                'file_valid.php'
+                'file_valid.php',
             ],
             [
                 $this->ignoreDataProvide(),
-                'dir_valid/file_valid.php'
+                'dir_valid/file_valid.php',
             ],
             [
                 $this->ignoreDataProvide(),
-                'dir_valid/subdir_valid/file_valid.php'
-            ]
+                'dir_valid/subdir_valid/file_valid.php',
+            ],
         ];
     }
 
@@ -89,9 +92,9 @@ class IgnoreEntrySearcherTest extends BaseUnitTestCase
      *
      * @dataProvider fileExistsDataProvider
      */
-    public function itShouldReturnTrue($ignoreFiles, $entry)
+    public function itShouldReturnTrue($ignoredFiles, $entry)
     {
-        $this->shouldReadIgnoreData($ignoreFiles);
+        $this->shouldReadIgnoreData($ignoredFiles);
         $this->assertTrue($this->ignoreEntrySearcher->search($entry));
     }
 
@@ -100,9 +103,9 @@ class IgnoreEntrySearcherTest extends BaseUnitTestCase
      *
      * @dataProvider fileNotExistsDataProvider
      */
-    public function itShouldReturnFalse($ignoreFiles, $entry)
+    public function itShouldReturnFalse($ignoredFiles, $entry)
     {
-        $this->shouldReadIgnoreData($ignoreFiles);
+        $this->shouldReadIgnoreData($ignoredFiles);
         $this->assertFalse($this->ignoreEntrySearcher->search($entry));
     }
 }

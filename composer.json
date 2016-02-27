@@ -4,7 +4,8 @@
     "type": "library",
     "require": {
         "php": "^5.3",
-        "symfony/dependency-injection": "^3.0"
+        "symfony/dependency-injection": "^3.0",
+        "symfony/config": "^3.0"
     },
     "license": "MIT",
     "authors": [
