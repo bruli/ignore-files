@@ -44,6 +44,24 @@ class FileReader
      */
     private function getFileContent()
     {
-        return file($this->file);
+        $content = file($this->file);
+
+        return $this->trimContent($content);
+    }
+
+    /**
+     * @param array $contentData
+     *
+     * @return array
+     */
+    private function trimContent(array $contentData)
+    {
+        $data = [];
+
+        foreach ($contentData as $item) {
+            $data[] = trim($item);
+        }
+
+        return $data;
     }
 }
