@@ -18,7 +18,7 @@ class IgnoreEntrySearcher
      */
     public function search($entry)
     {
-        $data = $this->fileReader->read();
+        $data = TrimContentTransformer::trim($this->fileReader->read());
 
         if (in_array($entry, $data)) {
             return true;

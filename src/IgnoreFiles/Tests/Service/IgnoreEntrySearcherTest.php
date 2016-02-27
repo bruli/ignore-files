@@ -26,7 +26,7 @@ class IgnoreEntrySearcherTest extends BaseUnitTestCase
             'file1.php',
             'dir1/file2.php',
             'dir2',
-            'dir3/',
+            'dir3/        ',
         ];
     }
 
