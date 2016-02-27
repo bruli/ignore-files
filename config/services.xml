@@ -3,9 +3,12 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
         http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="ignore-file">ignore-files</parameter>
+    </parameters>
     <services>
         <service id="file.reader" class="IgnoreFiles\Infrastructure\Disk\FileReader">
-            <argument>'file.txt'</argument>
+            <argument>%ignore-file%</argument>
         </service>
         <service id="ignore.entry.searcher" class="IgnoreFiles\Service\IgnoreEntrySearcher">
             <argument type="service" id="file.reader"/>
